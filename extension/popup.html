@@ -1,36 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
-width:350px;
-padding:15px;
-font-family:Arial;
+  width:380px;
+  min-height:500px;
+  padding:18px;
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color:white;
 }
+
+.container{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.header{
+  text-align:center;
+}
+
+.header h2{
+  font-size:22px;
+  font-weight:700;
+}
+
+.header p{
+  font-size:13px;
+  color:#cbd5e1;
+  margin-top:4px;
+}
+
 textarea{
-width:100%;
-height:80px;
+  width:100%;
+  height:110px;
+  resize:none;
+  border:none;
+  outline:none;
+  border-radius:14px;
+  padding:14px;
+  font-size:14px;
+  background:#f8fafc;
+  color:#111827;
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
 }
+
+textarea::placeholder{
+  color:#64748b;
+}
+
 button{
-margin-top:10px;
-width:100%;
-padding:10px;
+  border:none;
+  outline:none;
+  padding:14px;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  color:white;
+  transition:0.25s ease;
+  box-shadow:0 10px 20px rgba(34,197,94,0.35);
 }
+
+button:hover{
+  transform:translateY(-2px);
+}
+
+button:active{
+  transform:scale(0.98);
+}
+
+.answer-box{
+  background: rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:14px;
+  min-height:170px;
+  max-height:250px;
+  overflow-y:auto;
+}
+
+.answer-title{
+  font-size:13px;
+  font-weight:700;
+  color:#93c5fd;
+  margin-bottom:8px;
+}
+
 #answer{
-margin-top:15px;
-white-space: pre-wrap;
+  font-size:14px;
+  line-height:1.6;
+  color:#e2e8f0;
+  white-space:pre-wrap;
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#94a3b8;
 }
 </style>
 </head>
+
 <body>
 
-<h3>Ask This Webpage</h3>
+<div class="container">
 
-<textarea id="question" placeholder="Ask question..."></textarea>
+  <div class="header">
+    <h2>Ask This Webpage</h2>
+    <p>Powered by Ollama Local AI</p>
+  </div>
 
-<button id="askBtn">Ask Ollama</button>
+  <textarea
+    id="question"
+    placeholder="Ask anything about this webpage..."
+  ></textarea>
 
-<div id="answer"></div>
+  <button id="askBtn">Ask AI</button>
+
+  <div class="answer-box">
+    <div class="answer-title">Response</div>
+    <div id="answer">Your answer will appear here...</div>
+  </div>
+
+  <div class="footer">
+    Local • Private • Fast
+  </div>
+
+</div>
 
 <script src="popup.js"></script>
 
