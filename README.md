@@ -254,12 +254,6 @@ pip install -r requirements.txt
 
 ---
 
-# License
-
-MIT License
-
----
-
 # Author
 
 Built by Tushar
